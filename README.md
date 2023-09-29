@@ -19,8 +19,7 @@ None
 ---
 - hosts: localhost
   roles:
-    - { role: mariuskimmina.dotfiles }
-  become: true
+    - { role: idolize.dotfiles }
 ```
 
 
@@ -34,9 +33,11 @@ Fully tested on:
 
 ## Credits
 
+Forked from: https://github.com/mariuskimmina/ansible-role-dotfiles
+
 Inspired by: https://github.com/geerlingguy/ansible-role-dotfiles
 
 The main difference between the original project and this one is the usage of [stow][stow].
 
 [stow]: https://www.gnu.org/software/stow/
-[dotfiles]: https://github.com/mariuskimmina/.dotfiles
+[dotfiles]: https://github.com/idolize/dotfiles
