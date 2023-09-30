@@ -5,8 +5,8 @@ Works for all dotfile repos that follow the [stow][stow] format ([blog post](htt
 
 ## Usage
 
-1. Change the `dotfiles_repo` variable in `defaults/main.yml` to point to your dotfiles repo
-2. Create a playbook with this Role
+1. Create a playbook with this Role
+2. Set the `dotfiles_repo` variable somewhere
 3. Run the playbook
 
 ## Dependencies
@@ -19,7 +19,9 @@ None
 ---
 - hosts: localhost
   roles:
-    - { role: idolize.dotfiles }
+    - role: idolize.dotfiles
+      vars:
+        dotfiles_repo: https://github.com/myusername/mydotfiles
 ```
 
 
