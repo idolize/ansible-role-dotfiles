@@ -1,6 +1,7 @@
-# Ansible Role: Dotfiles
+# Ansible Role: Dotfiles Stow
 
-Installs a set of dotfiles from a given Git repostiory. By default it will use my [dotfiles repo][dotfiles] but you can easily change it to use yours.
+Installs a set of dotfiles from a given Git repostiory.
+
 Works for all dotfile repos that follow the [stow][stow] format ([blog post](https://brandon.invergo.net/news/2012-05-26-using-gnu-stow-to-manage-your-dotfiles.html)).
 
 ## Usage
@@ -37,9 +38,6 @@ Fully tested on:
 
 Forked from: https://github.com/mariuskimmina/ansible-role-dotfiles
 
-Inspired by: https://github.com/geerlingguy/ansible-role-dotfiles
-
-The main difference between the original project and this one is the usage of [stow][stow].
+Inspired by: https://github.com/geerlingguy/ansible-role-dotfiles. The main difference between the original project and this one is the usage of [stow][stow].
 
 [stow]: https://www.gnu.org/software/stow/
-[dotfiles]: https://github.com/idolize/dotfiles

@@ -2,7 +2,7 @@
 dependencies: []
 
 galaxy_info:
-  role_name: dotfiles
+  role_name: dotfiles_stow
   author: idolize
   description: Dotfile installation for UNIX/Linux using stow.
   company: None
@@ -28,4 +28,5 @@ galaxy_info:
     - development
     - system
     - dotfiles
+    - stow
     - configuration
