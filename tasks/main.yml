@@ -39,3 +39,7 @@
   register: result
   changed_when: 'result.stderr is search("LINK: ")'
   become: false
+
+# TODO add variable option to overwrite existing files
+# by adding --adopt and then reset git repo?
+# https://www.reddit.com/r/linux4noobs/comments/b5ig2h/comment/igmv8pp/?utm_source=share&utm_medium=web2x&context=3
