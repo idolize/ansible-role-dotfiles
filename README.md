@@ -1,4 +1,4 @@
-# Ansible Role: Dotfiles Stow
+# Ansible Role: idolize.dotfiles_stow
 
 Installs a set of dotfiles from a given Git repostiory.
 
@@ -10,7 +10,7 @@ Works for all dotfile repos that follow the [stow][stow] format ([blog post](htt
 ---
 - hosts: localhost
   roles:
-    - role: idolize.dotfiles
+    - role: idolize.dotfiles_stow
       vars:
         dotfiles_repo: https://github.com/myusername/mydotfiles
         dotfiles_conflict_mode: adopt_and_reset
