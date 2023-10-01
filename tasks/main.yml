@@ -21,7 +21,6 @@
     dest: "{{ dotfiles_repo_local_destination }}"
     version: "{{ dotfiles_repo_version }}"
     accept_hostkey: "{{ dotfiles_repo_accept_hostkey }}"
-  become: false
 
 - name: Build directories list
   ansible.builtin.find:
@@ -29,17 +28,20 @@
     recurse: no
     file_type: directory
   register: files
-  become: false
 
 - name: Deploy dotfiles
   with_items: '{{ files.files }}'
   ansible.builtin.command:
-    cmd: stow --target={{ dotfiles_home }} {{ item.path | basename }} --verbose=2
+    cmd: |
+      stow --verbose=2 --target={{ dotfiles_home }} {{ item.path | basename }}
+      {% if 'adopt' in dotfiles_conflict_mode %} --adopt{% endif %}
     chdir: "{{ dotfiles_repo_local_destination }}"
   register: result
   changed_when: 'result.stderr is search("LINK: ")'
-  become: false
 
-# TODO add variable option to overwrite existing files
-# by adding --adopt and then reset git repo?
-# https://www.reddit.com/r/linux4noobs/comments/b5ig2h/comment/igmv8pp/?utm_source=share&utm_medium=web2x&context=3
+- name: Revert dotfiles repository after adopt
+  ansible.builtin.command:
+    cmd: "git restore ."
+    chdir: "{{ dotfiles_repo_local_destination }}"
+  changed_when: false
+  when: dotfiles_conflict_mode == 'adopt_and_reset'
