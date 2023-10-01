@@ -1,1 +1,0 @@
-goku ansible_host=10.211.55.30 ansible_port=22 ansible_user='vagrant' ansible_ssh_private_key_file='/Users/idol/.vagrant.d/insecure_private_key'
